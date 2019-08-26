@@ -1,126 +1,97 @@
 <template>
-  <div @click="clickHandle">
+  <div class="main-container">
 
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <img class="userinfo-avatar" src="/static/images/user.png" background-size="cover" />
+    <view class="weui-cells weui-cells_after-title top-search-view">
+      <view class="weui-cell ">
+        <icon type="search" size="24"></icon>
+        <view class="weui-cell__hd">
+          <picker @change="rangeIndexChange" :value="searchRangeIndex" :range="searchRangeOptions">
+            <view class="weui-select">{{SEARCH_RANGE_OPTIONS[searchRangeIndex].label}}</view>
+          </picker>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="搜索食物查看对应建议"
+                 v-model="searchStr" @input="searchStrChange"/>
+        </view>
+      </view>
+    </view>
 
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
+    <viwe v-if="searchResult" class="content-view">
+      <view v-for="res in searchResult"  class="weui-cells weui-cells_after-title">
+        <view class="weui-cell ">
+          <icon v-if="res[ONE_MONTH_KEY]" type="success" size="24"></icon>
+          <icon v-else type="cancel" size="24"></icon>
+          <view class="weui-cell__hd">{{ res.name }}</view>
+          <view class="weui-cell__bd">{{SEARCH_RANGE_OPTIONS[searchRangeIndex].label}} {{ DEFINED_LABEL[res[ONE_MONTH_KEY]] }}</view>
+        </view>
+      </view>
+    </viwe>
 
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-
-    <div class="all">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
+import DATA_SOURCE from './source'
+const ONE_MONTH_KEY = 'one-month'
+const SEARCH_RANGE_OPTIONS = [
+  {
+    label: '一个月内',
+    key: ONE_MONTH_KEY
+  }
+]
+const DEFINED_LABEL = {
+  true: '可以吃',
+  false: '不可以吃'
+}
 
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      searchStr: null,
+      searchRangeIndex: null,
+      searchRangeOptions: SEARCH_RANGE_OPTIONS.map(o => o.label),
+      searchResult: null,
+      SEARCH_RANGE_OPTIONS,
+      ONE_MONTH_KEY,
+      DEFINED_LABEL
     }
   },
 
-  components: {
-    card
-  },
-
   methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
+    rangeIndexChange (e) {
+      this.searchRangeIndex = e.detail.value
     },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
+    searchStrChange () {
+      if (this.searchStr) {
+        this.searchResult = DATA_SOURCE.filter(item => item.name.indexOf(this.searchStr) > -1)
+      } else {
+        this.searchResult = DATA_SOURCE
+      }
     }
   },
 
   created () {
-    // let app = getApp()
+    this.searchRangeIndex = 0
+    this.searchResult = DATA_SOURCE
   }
 }
 </script>
 
-<style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+<style lang="scss" scoped>
+  .main-container {
+    .weui-cell__hd {
+      padding: 0 10px;
+    }
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
-}
+    .top-search-view {
+      flex: 1;
+    }
+    .content-view {
+      flex: 10000;
+      overflow-y: scroll;
+    }
+  }
 </style>

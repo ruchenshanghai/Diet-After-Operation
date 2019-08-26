@@ -1,0 +1,206 @@
+[
+  {
+    "name": "苹果",
+    "one-month": false
+  },
+  {
+    "name": "橙子",
+    "one-month": false
+  },
+  {
+    "name": "橘子",
+    "one-month": false
+  },
+  {
+    "name": "草莓",
+    "one-month": false
+  },
+  {
+    "name": "车厘子",
+    "one-month": false
+  },
+  {
+    "name": "榴莲",
+    "one-month": false
+  },
+  {
+    "name": "香蕉",
+    "one-month": true
+  },
+  {
+    "name": "猕猴桃",
+    "one-month": false
+  },
+  {
+    "name": "火龙果",
+    "one-month": true
+  },
+  {
+    "name": "西瓜",
+    "one-month": false
+  },
+  {
+    "name": "汉堡",
+    "one-month": false
+  },
+  {
+    "name": "炸鸡",
+    "one-month": false
+  },
+  {
+    "name": "小笼包",
+    "one-month": true
+  },
+  {
+    "name": "咖喱",
+    "one-month": false
+  },
+  {
+    "name": "饼干",
+    "one-month": true
+  },
+  {
+    "name": "黄瓜",
+    "one-month": true
+  },
+  {
+    "name": "小龙虾",
+    "one-month": false
+  },
+  {
+    "name": "麻辣烫",
+    "one-month": false
+  },
+  {
+    "name": "火锅",
+    "one-month": false
+  },
+  {
+    "name": "泡面",
+    "one-month": false
+  },
+  {
+    "name": "坚果",
+    "one-month": false
+  },
+  {
+    "name": "蟹",
+    "one-month": false
+  },
+  {
+    "name": "虾",
+    "one-month": false
+  },
+  {
+    "name": "棒棒糖",
+    "one-month": false
+  },
+  {
+    "name": "薯条",
+    "one-month": true
+  },
+  {
+    "name": "冰激凌",
+    "one-month": true
+  },
+  {
+    "name": "茶",
+    "one-month": true
+  },
+  {
+    "name": "咖啡",
+    "one-month": true
+  },
+  {
+    "name": "蔬菜",
+    "one-month": true
+  },
+  {
+    "name": "奶茶",
+    "one-month": false
+  },
+  {
+    "name": "可乐",
+    "one-month": false
+  },
+  {
+    "name": "果汁",
+    "one-month": false
+  },
+  {
+    "name": "牛奶",
+    "one-month": true
+  },
+  {
+    "name": "酸奶",
+    "one-month": false
+  },
+  {
+    "name": "柠檬水",
+    "one-month": false
+  },
+  {
+    "name": "雪碧",
+    "one-month": false
+  },
+  {
+    "name": "薯片",
+    "one-month": true
+  },
+  {
+    "name": "巧克力",
+    "one-month": true
+  },
+  {
+    "name": "瓜子",
+    "one-month": false
+  },
+  {
+    "name": "披萨",
+    "one-month": true
+  },
+  {
+    "name": "冷饮",
+    "one-month": true
+  },
+  {
+    "name": "蛋挞",
+    "one-month": true
+  },
+  {
+    "name": "牛排",
+    "one-month": false
+  },
+  {
+    "name": "海鲜",
+    "one-month": false
+  },
+  {
+    "name": "小核桃",
+    "one-month": false
+  },
+  {
+    "name": "软糖",
+    "one-month": true
+  },
+  {
+    "name": "枣",
+    "one-month": true
+  },
+  {
+    "name": "肉",
+    "one-month": true
+  },
+  {
+    "name": "玉米",
+    "one-month": true
+  },
+  {
+    "name": "年糕",
+    "one-month": true
+  },
+  {
+    "name": "丸子",
+    "one-month": true
+  }
+]
