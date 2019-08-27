@@ -65,14 +65,14 @@ export default {
       if (this.searchStr) {
         this.searchResult = DATA_SOURCE.filter(item => item.name.indexOf(this.searchStr) > -1)
       } else {
-        this.searchResult = DATA_SOURCE
+        this.searchResult = null
       }
     }
   },
 
   created () {
     this.searchRangeIndex = 0
-    this.searchResult = DATA_SOURCE
+    this.searchResult = null
   }
 }
 </script>
