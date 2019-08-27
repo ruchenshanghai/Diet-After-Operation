@@ -22,7 +22,7 @@
           <icon v-if="res[ONE_MONTH_KEY]" type="success" size="24"></icon>
           <icon v-else type="cancel" size="24"></icon>
           <view class="weui-cell__hd">{{ res.name }}</view>
-          <view class="weui-cell__bd">{{SEARCH_RANGE_OPTIONS[searchRangeIndex].label}} {{ DEFINED_LABEL[res[ONE_MONTH_KEY]] }}</view>
+          <view class="weui-cell__bd">{{ DEFINED_LABEL[res[ONE_MONTH_KEY]] }}</view>
         </view>
       </view>
     </viwe>
