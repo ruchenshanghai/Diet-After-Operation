@@ -22,7 +22,7 @@
           <icon v-if="res[ONE_MONTH_KEY]" type="success" size="24"></icon>
           <icon v-else type="cancel" size="24"></icon>
           <view class="weui-cell__hd">{{ res.name }}</view>
-          <view class="weui-cell__bd">{{SEARCH_RANGE_OPTIONS[searchRangeIndex].label}} {{ DEFINED_LABEL[res[ONE_MONTH_KEY]] }}</view>
+          <view class="weui-cell__bd">{{ DEFINED_LABEL[res[ONE_MONTH_KEY]] }}</view>
         </view>
       </view>
     </viwe>
@@ -31,50 +31,50 @@
 </template>
 
 <script>
-import DATA_SOURCE from './source'
-const ONE_MONTH_KEY = 'one-month'
-const SEARCH_RANGE_OPTIONS = [
-  {
-    label: '一个月内',
-    key: ONE_MONTH_KEY
-  }
-]
-const DEFINED_LABEL = {
-  true: '可以吃',
-  false: '不可以吃'
-}
-
-export default {
-  data () {
-    return {
-      searchStr: null,
-      searchRangeIndex: null,
-      searchRangeOptions: SEARCH_RANGE_OPTIONS.map(o => o.label),
-      searchResult: null,
-      SEARCH_RANGE_OPTIONS,
-      ONE_MONTH_KEY,
-      DEFINED_LABEL
+  import DATA_SOURCE from './source'
+  const ONE_MONTH_KEY = 'one-month'
+  const SEARCH_RANGE_OPTIONS = [
+    {
+      label: '一个月内',
+      key: ONE_MONTH_KEY
     }
-  },
+  ]
+  const DEFINED_LABEL = {
+    true: '可以吃',
+    false: '不可以吃'
+  }
 
-  methods: {
-    rangeIndexChange (e) {
-      this.searchRangeIndex = e.detail.value
-    },
-    searchStrChange () {
-      if (this.searchStr) {
-        this.searchResult = DATA_SOURCE.filter(item => item.name.indexOf(this.searchStr) > -1)
-      } else {
-        this.searchResult = DATA_SOURCE
+  export default {
+    data () {
+      return {
+        searchStr: null,
+        searchRangeIndex: null,
+        searchRangeOptions: SEARCH_RANGE_OPTIONS.map(o => o.label),
+        searchResult: null,
+        SEARCH_RANGE_OPTIONS,
+        ONE_MONTH_KEY,
+        DEFINED_LABEL
       }
-    }
-  },
+    },
 
-  created () {
-    this.searchRangeIndex = 0
-    this.searchResult = DATA_SOURCE
+    methods: {
+      rangeIndexChange (e) {
+        this.searchRangeIndex = e.detail.value
+      },
+      searchStrChange () {
+        if (this.searchStr) {
+          this.searchResult = DATA_SOURCE.filter(item => item.name.indexOf(this.searchStr) > -1)
+        } else {
+          this.searchResult = null
+        }
+      }
+    },
+
+    created () {
+      this.searchRangeIndex = 0
+      this.searchResult = null
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
