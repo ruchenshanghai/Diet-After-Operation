@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-
+    <img src="/static/images/background.jpg" class="background-img">
     <view class="weui-cells weui-cells_after-title top-search-view">
       <view class="weui-cell ">
         <icon type="search" size="24"></icon>
@@ -77,6 +77,11 @@
 
 <style lang="scss" scoped>
   .main-container {
+    .background-img {
+      position: fixed;
+      bottom: 0;
+      z-index: 10;
+    }
     .weui-cell__hd {
       padding: 0 10px;
     }
@@ -86,10 +91,12 @@
 
     .top-search-view {
       flex: 1;
+      z-index: 9;
     }
     .content-view {
       flex: 10000;
       overflow-y: scroll;
+      z-index: 9;
     }
   }
 </style>
